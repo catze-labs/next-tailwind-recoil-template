@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import TestHeader from "@/features/test/components/TestHeader";
 import Counter from "@/features/test/components/Counter";
-import { useCatFact } from "@/requests/test";
+import { useCatFact } from "@/requests/cat";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return { props: {} };
