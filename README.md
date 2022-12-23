@@ -19,7 +19,7 @@ Feature based file system with concerns of serverless paradigm.
 ```bash
 src/
 ├─ styles/  # tailwind style, global styles...
-├─ public/  # index.html, favicons, metadata for seo...
+├─ public/  # index.html, favicons, metadata for SEO...
 │   ├─ assets/ # images, ...
 │   └─ meta/ # metadatas
 ├─ states/ # global states handled by recoil
@@ -32,7 +32,7 @@ src/
 ├─ pages/ # routing & API
 │   └─ api/ # export from src/api
 │   └─ [feature name routers...]
-├─ requests/ # API call with axios & Server state driven bt React-Query
+├─ requests/ # API call with axios & Server state driven by React-Query
 ├─ types/ # collection of types d.ts
 └─ api/ # Next.js Serverless API directory
    └─ [domain name]/ # /api/[domain_name]
