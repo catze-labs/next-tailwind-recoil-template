@@ -1,5 +1,6 @@
 import NoSSR from "@/components/NoSSR";
 import { counterState } from "@/states/counter";
+import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/20/solid";
 import { useRecoilState } from "recoil";
 
 const Counter: React.FC = () => {
@@ -15,13 +16,13 @@ const Counter: React.FC = () => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => setCount(count + 1)}
         >
-          Increment
+          <PlusCircleIcon className="w-4" />
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => setCount(count - 1)}
         >
-          Decrement
+          <MinusCircleIcon className="w-4" />
         </button>
       </div>
     </div>
