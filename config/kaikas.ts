@@ -1,13 +1,9 @@
-import {
-  Chain,
-  getWalletConnectConnector,
-  Wallet,
-} from "@rainbow-me/rainbowkit";
+import { Chain, Wallet } from "@rainbow-me/rainbowkit";
 
 import { KaikasConnector as Kaikas } from "kaikas-connector";
 import { Connector, ConnectorData } from "wagmi";
 import { isAddress } from "ethers/lib/utils.js";
-import Caver, { provider } from "caver-js";
+import Caver from "caver-js";
 
 export interface KaikasWalletOptions {
   chains: Chain[];
