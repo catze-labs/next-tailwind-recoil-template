@@ -1,8 +1,9 @@
-import { Story, Meta } from "@storybook/react";
-import Counter from "./Counter";
+import { Meta, Story } from '@storybook/react';
+
+import Counter from './Counter';
 
 export default {
-  title: "Test/Counter",
+  title: 'Test/Counter',
   component: Counter,
 } as Meta;
 

@@ -1,9 +1,9 @@
-import { AtomEffect } from "recoil";
+import { AtomEffect } from 'recoil';
 
 const localStorageEffect: <T>(key: string) => AtomEffect<T> =
   (key: string) =>
   ({ setSelf, onSet }) => {
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       return;
     }
 

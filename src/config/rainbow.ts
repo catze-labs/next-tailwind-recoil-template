@@ -1,35 +1,34 @@
-import { Chain, configureChains, createClient } from "wagmi";
-import { mainnet, goerli, polygon } from "wagmi/chains";
-import { connectorsForWallets } from "@rainbow-me/rainbowkit";
-import { publicProvider } from "wagmi/providers/public";
+import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 import {
   metaMaskWallet,
   walletConnectWallet,
-} from "@rainbow-me/rainbowkit/wallets";
-import { kaikasWallet } from "./kaikas";
+} from '@rainbow-me/rainbowkit/wallets';
+import { Chain, configureChains, createClient } from 'wagmi';
+import { goerli, mainnet, polygon } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
 
 const klaytnBaobabChain: Chain = {
   id: 1001,
-  name: "Klaytn Baobab Testnet",
-  network: "klaytn",
+  name: 'Klaytn Baobab Testnet',
+  network: 'klaytn',
   nativeCurrency: {
-    name: "KLAY",
-    symbol: "KLAY",
+    name: 'KLAY',
+    symbol: 'KLAY',
     decimals: 18,
   },
   rpcUrls: {
     default: {
-      http: ["https://api.baobab.klaytn.net:8651"],
+      http: ['https://api.baobab.klaytn.net:8651'],
     },
   },
   blockExplorers: {
     default: {
-      name: "Klaytnscope",
-      url: "https://baobab.scope.klaytn.com",
+      name: 'Klaytnscope',
+      url: 'https://baobab.scope.klaytn.com',
     },
     klaytnScope: {
-      name: "Klaytnscope",
-      url: "https://baobab.scope.klaytn.com",
+      name: 'Klaytnscope',
+      url: 'https://baobab.scope.klaytn.com',
     },
   },
   testnet: true,
@@ -37,18 +36,17 @@ const klaytnBaobabChain: Chain = {
 
 const { chains, provider } = configureChains(
   [mainnet, goerli, polygon, klaytnBaobabChain],
-  [publicProvider()]
+  [publicProvider()],
 );
 
 const connectors = connectorsForWallets([
   {
-    groupName: "Recommended",
+    groupName: 'Recommended',
     wallets: [
       //   injectedWallet({ chains }),
       metaMaskWallet({ chains }),
       //   coinbaseWallet({ chains, appName: "Test" }),
       walletConnectWallet({ chains }),
-      kaikasWallet({ chains }),
     ],
   },
 ]);

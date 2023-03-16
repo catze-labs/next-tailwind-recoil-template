@@ -1,5 +1,5 @@
-import React from "react";
-import { BeakerIcon } from "@heroicons/react/20/solid";
+import { BeakerIcon } from '@heroicons/react/20/solid';
+import React from 'react';
 
 const TestHeader: React.FC = () => {
   return (

@@ -1,10 +1,10 @@
-import { addDecorator } from "@storybook/react";
-import { QueryClient } from "react-query";
-import { RecoilRoot } from "recoil";
-import "../styles/globals.css";
+import { addDecorator } from '@storybook/react';
+import { RecoilRoot } from 'recoil';
+
+import '../src/styles/globals.css';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,

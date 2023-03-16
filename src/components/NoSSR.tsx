@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useState } from "react";
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 const NoSSR: React.FC<PropsWithChildren> = ({ children }) => {
   const [canRender, setCanRender] = useState(false);

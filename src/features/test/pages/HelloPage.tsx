@@ -1,9 +1,10 @@
-import { GetServerSideProps, NextPage } from "next";
-import TestHeader from "@/features/test/components/TestHeader";
-import Counter from "@/features/test/components/Counter";
-import { useCatFact } from "@/requests/cat";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useSignMessage } from "wagmi";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { GetServerSideProps, NextPage } from 'next';
+import { useSignMessage } from 'wagmi';
+
+import Counter from '@/src/features/test/components/Counter';
+import TestHeader from '@/src/features/test/components/TestHeader';
+import { useCatFact } from '@/src/requests/cat';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return { props: {} };
@@ -13,7 +14,7 @@ const HelloPage: NextPage = () => {
   const { data: catfact, isLoading } = useCatFact();
 
   const { signMessage } = useSignMessage({
-    message: "Hello World",
+    message: 'Hello World',
     onSuccess: (result) => {
       console.log(result);
     },
