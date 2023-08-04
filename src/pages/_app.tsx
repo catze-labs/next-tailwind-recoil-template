@@ -1,14 +1,11 @@
 import '../styles/globals.css';
 
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import { WagmiConfig } from 'wagmi';
 
-import '@rainbow-me/rainbowkit/styles.css';
-
-import { chains, wagmiClient } from '@/src/config/rainbow';
+import { chains, wagmiConfig } from '@/src/config/wagmiConfig';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,10 +22,8 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <WagmiConfig client={wagmiClient}>
-            <RainbowKitProvider chains={chains}>
-              <Component {...pageProps} />
-            </RainbowKitProvider>
+          <WagmiConfig config={wagmiConfig}>
+            <Component {...pageProps} />
           </WagmiConfig>
         </QueryClientProvider>
       </RecoilRoot>

@@ -1,6 +1,6 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { GetServerSideProps, NextPage } from 'next';
-import { useSignMessage } from 'wagmi';
+import { useConnect, useSignMessage } from 'wagmi';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
 import Counter from '@/src/features/test/components/Counter';
 import TestHeader from '@/src/features/test/components/TestHeader';
@@ -12,7 +12,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const HelloPage: NextPage = () => {
   const { data: catfact, isLoading } = useCatFact();
-
+  const { connect } = useConnect({
+    connector: new MetaMaskConnector(),
+  });
   const { signMessage } = useSignMessage({
     message: 'Hello World',
     onSuccess: (result) => {
@@ -25,7 +27,12 @@ const HelloPage: NextPage = () => {
 
   return (
     <div className="flex flex-col gap-4 min-h-screen justify-center items-center">
-      <ConnectButton />
+      <button
+        className="px-4 py-2 bg-blue-500 text-white rounded-xl font-bold"
+        onClick={() => connect()}
+      >
+        Connect Wallet
+      </button>
       <button
         className="px-4 py-2 bg-blue-500 text-white rounded-xl font-bold"
         onClick={() => signMessage()}
