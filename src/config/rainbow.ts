@@ -1,10 +1,6 @@
-import { connectorsForWallets } from '@rainbow-me/rainbowkit';
-import {
-  metaMaskWallet,
-  walletConnectWallet,
-} from '@rainbow-me/rainbowkit/wallets';
-import { Chain, configureChains, createClient } from 'wagmi';
-import { goerli, mainnet, polygon } from 'wagmi/chains';
+import { getDefaultWallets } from '@rainbow-me/rainbowkit';
+import { Chain, configureChains, createConfig } from 'wagmi';
+import { goerli, mainnet, polygon, sepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 const klaytnBaobabChain: Chain = {
@@ -18,6 +14,9 @@ const klaytnBaobabChain: Chain = {
   },
   rpcUrls: {
     default: {
+      http: ['https://api.baobab.klaytn.net:8651'],
+    },
+    public: {
       http: ['https://api.baobab.klaytn.net:8651'],
     },
   },
@@ -34,27 +33,22 @@ const klaytnBaobabChain: Chain = {
   testnet: true,
 };
 
-const { chains, provider } = configureChains(
-  [mainnet, goerli, polygon, klaytnBaobabChain],
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [mainnet, goerli, sepolia, polygon, klaytnBaobabChain],
   [publicProvider()],
 );
 
-const connectors = connectorsForWallets([
-  {
-    groupName: 'Recommended',
-    wallets: [
-      //   injectedWallet({ chains }),
-      metaMaskWallet({ chains }),
-      //   coinbaseWallet({ chains, appName: "Test" }),
-      walletConnectWallet({ chains }),
-    ],
-  },
-]);
-
-const wagmiClient = createClient({
-  autoConnect: false,
-  connectors,
-  provider,
+const { connectors } = getDefaultWallets({
+  appName: 'My RainbowKit App',
+  projectId: 'YOUR_PROJECT_ID',
+  chains,
 });
 
-export { wagmiClient, chains };
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+  webSocketPublicClient,
+});
+
+export { wagmiConfig, chains };

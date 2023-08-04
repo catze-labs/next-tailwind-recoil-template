@@ -8,7 +8,7 @@ import { WagmiConfig } from 'wagmi';
 
 import '@rainbow-me/rainbowkit/styles.css';
 
-import { chains, wagmiClient } from '@/src/config/rainbow';
+import { chains, wagmiConfig } from '@/src/config/rainbow';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,7 +25,7 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <WagmiConfig client={wagmiClient}>
+          <WagmiConfig config={wagmiConfig}>
             <RainbowKitProvider chains={chains}>
               <Component {...pageProps} />
             </RainbowKitProvider>
