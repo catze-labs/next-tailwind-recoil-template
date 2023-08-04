@@ -1,4 +1,3 @@
-import { getDefaultWallets } from '@rainbow-me/rainbowkit';
 import { Chain, configureChains, createConfig } from 'wagmi';
 import { goerli, mainnet, polygon, sepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
@@ -31,22 +30,15 @@ const klaytnBaobabChain: Chain = {
     },
   },
   testnet: true,
-};
+} as const satisfies Chain;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, goerli, sepolia, polygon, klaytnBaobabChain],
   [publicProvider()],
 );
 
-const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
-  chains,
-});
-
 const wagmiConfig = createConfig({
   autoConnect: true,
-  connectors,
   publicClient,
   webSocketPublicClient,
 });
