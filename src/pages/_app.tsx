@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import { WagmiConfig } from 'wagmi';
 
+import ModalProvider from '@/components/modal/ModalProvider';
 import { chains, wagmiConfig } from '@/lib/config/wagmiConfig';
 
 const queryClient = new QueryClient({
@@ -23,6 +24,7 @@ function App({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <WagmiConfig config={wagmiConfig}>
+            <ModalProvider />
             <Component {...pageProps} />
           </WagmiConfig>
         </QueryClientProvider>
