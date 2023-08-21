@@ -1,6 +1,5 @@
-import { useRecoilState } from 'recoil';
-
-import { modalState } from '@/states/modal';
+import { modalState } from "@/states/modal";
+import { useRecoilState } from "recoil";
 
 export interface ModalOptions {
   modalKey: string;
