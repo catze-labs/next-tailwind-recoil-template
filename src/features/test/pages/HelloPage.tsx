@@ -2,9 +2,9 @@ import { GetServerSideProps, NextPage } from 'next';
 import { useConnect, useSignMessage } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
-import Counter from '@/src/features/test/components/Counter';
-import TestHeader from '@/src/features/test/components/TestHeader';
-import { useCatFact } from '@/src/requests/cat';
+import Counter from '@/features/test/components/Counter';
+import TestHeader from '@/features/test/components/TestHeader';
+import { useCatFact } from '@/requests/cat';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return { props: {} };

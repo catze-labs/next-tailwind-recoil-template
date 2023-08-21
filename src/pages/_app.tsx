@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import { WagmiConfig } from 'wagmi';
 
-import { chains, wagmiConfig } from '@/src/lib/config/wagmiConfig';
+import { chains, wagmiConfig } from '@/lib/config/wagmiConfig';
 
 const queryClient = new QueryClient({
   defaultOptions: {

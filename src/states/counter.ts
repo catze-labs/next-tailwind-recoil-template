@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-import localStorageEffect from '@/src/states/localStorageEffect';
+import localStorageEffect from '@/states/localStorageEffect';
 
 export const counterState = atom({
   key: '@counter',

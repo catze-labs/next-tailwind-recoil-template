@@ -1,4 +1,1 @@
-export {
-  default,
-  getServerSideProps,
-} from '@/src/features/test/pages/HelloPage';
+export { default, getServerSideProps } from '@/features/test/pages/HelloPage';
