@@ -1,7 +1,7 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { useSignMessage } from 'wagmi';
-import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useSignMessage } from "wagmi";
+import * as yup from "yup";
 
 type Inputs = {
   title: string;
@@ -9,11 +9,12 @@ type Inputs = {
 };
 
 const schema = yup.object({
-  title: yup.string().required('Title must be required.'),
+  title: yup.string().required("Title must be required."),
   content: yup
     .string()
-    .min(5, 'Content should be over 5 characters')
-    .max(30, 'Content should be less 30 characters'),
+    .required()
+    .min(5, "Content should be over 5 characters")
+    .max(30, "Content should be less 30 characters"),
 });
 
 const TestForm = () => {
@@ -22,7 +23,7 @@ const TestForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({
-    mode: 'onTouched',
+    mode: "onTouched",
     resolver: yupResolver(schema),
   });
 
@@ -42,27 +43,27 @@ const TestForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={'flex flex-col gap-4'}>
-      <div className={'flex flex-col gap-2'}>
-        <label className={'text-gray-300 text-xs'}>Title</label>
+    <form onSubmit={handleSubmit(onSubmit)} className={"flex flex-col gap-4"}>
+      <div className={"flex flex-col gap-2"}>
+        <label className={"text-gray-300 text-xs"}>Title</label>
         <input
           defaultValue="test"
-          {...register('title')}
-          className={'border border-blue-400 rounded-sm px-2 py-1'}
+          {...register("title")}
+          className={"border border-blue-400 rounded-sm px-2 py-1"}
         />
         {errors.title && (
-          <span className={'text-red-400 text-xs'}>{errors.title.message}</span>
+          <span className={"text-red-400 text-xs"}>{errors.title.message}</span>
         )}
       </div>
-      <div className={'flex flex-col gap-2'}>
-        <label className={'text-gray-300 text-xs'}>Content</label>
+      <div className={"flex flex-col gap-2"}>
+        <label className={"text-gray-300 text-xs"}>Content</label>
         <input
-          {...register('content', { required: true })}
-          className={'border border-blue-400 rounded-sm px-2 py-1'}
-          defaultValue={'hello worlds'}
+          {...register("content", { required: true })}
+          className={"border border-blue-400 rounded-sm px-2 py-1"}
+          defaultValue={"hello worlds"}
         />
         {errors.content && (
-          <span className={'text-red-400 text-xs'}>
+          <span className={"text-red-400 text-xs"}>
             {errors.content.message}
           </span>
         )}
