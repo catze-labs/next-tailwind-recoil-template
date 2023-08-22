@@ -22,6 +22,8 @@
     "https-browserify": "^1.0.0",
     "kaikas-connector": "^6.0.13",
     "next": "^13.2.4",
+    "next-seo": "^6.1.0",
+    "next-sitemap": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
