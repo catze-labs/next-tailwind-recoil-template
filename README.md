@@ -47,4 +47,4 @@ Global type for window (For using web3 third-party method; Such as Klaytn, Metam
 
 ## 4. Etc
 
-- [herosicon](https://heroicons.com/) : useful icons
+- [heroicons](https://heroicons.com/) : useful icons
