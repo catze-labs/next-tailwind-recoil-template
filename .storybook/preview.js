@@ -1,6 +1,3 @@
-import { addDecorator } from '@storybook/react';
-import { RecoilRoot } from 'recoil';
-
 import '../src/styles/globals.css';
 
 export const parameters = {
@@ -12,9 +9,3 @@ export const parameters = {
     },
   },
 };
-
-addDecorator((storyFn) => (
-  <RecoilRoot>
-    <>{storyFn()}</>
-  </RecoilRoot>
-));

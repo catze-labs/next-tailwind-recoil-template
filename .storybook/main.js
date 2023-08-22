@@ -11,6 +11,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-styling',
     {
       /**
        * Fix Storybook issue with PostCSS@8
@@ -24,13 +25,16 @@ module.exports = {
       },
     },
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-webpack5',
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
   },
   webpackFinal: async (config) => {
     // @ as an alias for src
     config.resolve.alias['@'] = path.resolve(__dirname, '../');
     return config;
+  },
+  docs: {
+    autodocs: true,
   },
 };

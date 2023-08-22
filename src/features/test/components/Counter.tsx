@@ -1,8 +1,8 @@
 import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/react/20/solid';
 import { useRecoilState } from 'recoil';
 
-import NoSSR from '@/src/components/NoSSR';
-import { counterState } from '@/src/states/counter';
+import NoSSR from '@/components/NoSSR';
+import { counterState } from '@/states/counter';
 
 const Counter: React.FC = () => {
   const [count, setCount] = useRecoilState(counterState);
